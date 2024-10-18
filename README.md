@@ -90,8 +90,11 @@ Phishing Email Form
 SendGrid Dashboard (Email Tracking)
 
 Future Improvements
+
 Campaign Management: Add a system to track multiple phishing campaigns.
+
 Recipient Statistics: Show detailed reports for recipients, including who opened the email or clicked the link.
+
 Authentication: Add user authentication to restrict access to the tool.
 
 License
