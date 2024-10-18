@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Simulation Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #responseMessage {
+            margin-top: 20px;
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Phishing Simulation Tool Dashboard</h1>
+
+    <form id="emailForm" action="/send-email" method="POST">
+        <label for="to">Recipient Email:</label>
+        <input type="email" id="to" name="to" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="body">Message Body:</label>
+        <textarea id="body" name="body" rows="4" required></textarea>
+
+        <button type="submit">Send Phishing Email</button>
+    </form>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form submission
+
+            const email = document.getElementById('to').value;
+            const subject = document.getElementById('subject').value;
+            const body = document.getElementById('body').value;
+
+            // Simple client-side validation
+            if (!email || !subject || !body) {
+                document.getElementById('responseMessage').innerHTML = `<p class="error">All fields are required!</p>`;
+                return;
+            }
+
+            // Create form data object
+            const formData = { to: email, subject: subject, body: body };
+
+            // Send the POST request using Fetch API
+            fetch('/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('responseMessage').innerHTML = `<p class="error">Error: ${data.error}</p>`;
+                } else {
+                    document.getElementById('responseMessage').innerHTML = `<p>${data.message}</p>`;
+                }
+            })
+            .catch((error) => {
+                document.getElementById('responseMessage').innerHTML = `<p class="error">Error: ${error}</p>`;
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- Typically, in a real-world full-stack web application, you'd separate the front-end and back-end. However, Flask (the back-end framework) is designed to serve HTML templates directly from the server side, which is why it expects the HTML files to be inside a templates folder within the back-end structure. Since this is a portfolio project where the front-end and back-end are combined for simplicity, we’re keeping the HTML inside the back-end’s templates folder so that Flask can render it directly.
+
+If you want to switch to a more decoupled approach later, you can serve the front-end from a separate front-end app and have the back-end (Flask) serve API endpoints.-->
