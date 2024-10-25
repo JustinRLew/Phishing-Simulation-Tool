@@ -28,7 +28,7 @@ To run this project locally, you need:
 
 Python 3.8+
 SendGrid API Key (You can sign up for an account at sendgrid.com)
-Flask and SQLAlchemy for Python
+Flask for Python
 JavaScript for handling the front-end form
 
 Installation
@@ -37,7 +37,7 @@ Follow these steps to get the project up and running:
 1. Clone the repository
 bash
 
-git clone https://github.com/your-username/phishing-simulation-tool.git
+git clone https://github.com/JustinRLew/Phishing-Simulation-Tool
 cd phishing-simulation-tool
 
 2. Set up a virtual environment (optional, but recommended)
