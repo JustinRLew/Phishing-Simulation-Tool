@@ -9,6 +9,18 @@ Send Phishing Emails: Users can enter a recipient's email, subject, and message 
 Email Tracking: The SendGrid API handles tracking for when recipients open the email or click the phishing link.
 Full-Stack Application: The tool uses an HTML front-end, JavaScript for form submission, and a Python Flask back-end to process and send the emails.
 
+
+## Screenshots
+
+### Frontend
+![Frontend Screenshot](screenshots/frontend_screenshot.png)
+
+### Postman
+![Postman Screenshot](screenshots/postman_screenshot.png)
+
+### Tracking
+![Tracking Screenshot](screenshots/tracking_screenshot.png)
+
 Tech Stack
 Back-End: Python, Flask
 Front-End: HTML, JavaScript (Fetch API)
