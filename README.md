@@ -12,7 +12,7 @@ Full-Stack Application: The tool uses an HTML front-end, JavaScript for form sub
 
 ## Screenshots
 
-### Frontend
+### Frontend Alternative
 ![Frontend Screenshot](screenshots/frontend_screenshot.png)
 
 ### Postman
